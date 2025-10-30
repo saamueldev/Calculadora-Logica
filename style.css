@@ -1,0 +1,321 @@
+
+*{
+    margin: 0;
+    padding: 0;
+
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-start; 
+    margin-top: 30px;
+}
+
+.calculadora{
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    padding-top: 15px;
+    color: #fff;
+
+}
+
+.tabela-verdade {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.tabela-verdade table {
+    border-collapse: collapse;
+    width: 50%; 
+    font-size: 20px; 
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    color:#000;
+    
+}
+
+.tabela-verdade th, 
+.tabela-verdade td {
+    border: 1px solid #666;
+    padding: 12px 20px;
+    
+}
+
+.tabela-verdade th {
+    background-color: #0400ff;
+    color: #ffffff;
+    font-weight: bold;
+    
+}
+
+.tabela-verdade td {
+    background-color: #eee;
+}
+
+/* Dark mode */
+body.dark-mode .tabela-verdade th {
+    background-color: #222;
+    color: #fe8300;
+}
+
+body.dark-mode .tabela-verdade td {
+    background-color: #333;
+    color: #fff;
+}
+
+.classificacao {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+}
+
+body.dark-mode .classificacao {
+    color: #fff;
+}
+
+.separador{
+    padding-top: 15px;
+}
+.botao {
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: rgb(31, 31, 31);
+    border: none;
+    color: #fff;
+    margin: 3px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 6px #222, -2px -2px 4px #444; 
+    transition: all 0.1s ease-in-out;
+}
+
+.botao:active {
+    box-shadow: inset 2px 2px 4px #222, inset -2px -2px 4px #444; 
+    transform: translateY(2px); /* desce um pouco */
+}
+
+.botao:hover{
+    background-color: #5a5555;
+}
+
+button[data-tooltip] {
+  position: relative;
+}
+
+button[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%; /* aparece acima */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 999; /* garante que fica acima de tudo */
+}
+
+/* aparece e some depois de 2s */
+button[data-tooltip]:hover::after {
+  opacity: 1;
+  animation: fadeout 2s forwards;
+}
+
+@keyframes fadeout {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+#resultado:empty::before {
+    content: attr(data-placeholder);
+    color: #999;
+    pointer-events: none;
+}
+
+
+#resultado {
+    background-color: #ffffff;
+    width: 385px;
+    max-width: 385px;
+    min-width: 385px;
+    height: 80px; /* altura maior para varias linhas */
+    max-height: 150px; /* opcional: limite vertical */
+    margin: 5px;
+    font-size: 25px;
+    color: black;
+    text-align: left;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    overflow-y: auto; /* ativa rolagem vertical se passar */
+    overflow-x: hidden;
+    white-space: normal; /* agora permite quebra de linha */
+    word-break: break-word; /* evita estouro lateral */
+}
+
+#ouou{
+    font-size: 30px;
+}
+
+#negacao{
+    font-size: 30px;
+}
+
+.botaoOP {
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: rgb(255, 129, 0);
+    border: none;
+    color: #ffffff;
+    margin: 3px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 6px #222, -2px -2px 4px #ff6801; /* sombra dupla (profundidade) */
+    transition: all 0.1s ease-in-out;
+}
+
+.botaoOP:active {
+    box-shadow: inset 2px 2px 4px #222, inset -2px -2px 4px #444; /* efeito afundado */
+    transform: translateY(2px); /* desce um pouco */
+}
+
+.botaoResult {
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: rgb(0, 0, 205);
+    border: none;
+    color: #ffffff;
+    margin: 3px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 6px #222, -2px -2px 4px #5858ff; /* sombra dupla (profundidade) */
+    transition: all 0.1s ease-in-out;
+}
+
+#verdadeiro{
+    background-color: darkgreen;
+    color: #ffffff;
+}
+
+#falso{
+    background-color: #b80018;
+}
+
+#limpar{
+    background-color: #222;
+}
+
+#limparUmPorUm{
+    background-color: #222;
+}
+
+.botaoResult:active {
+    box-shadow: inset 2px 2px 4px #222, inset -2px -2px 4px #444; /* efeito afundado */
+    transform: translateY(2px); /* desce um pouco */
+}
+
+body {
+    transition: background-color 0.5s, color 0.5s;
+    padding: 20px;
+    z-index: 1;
+    background: #e7e4ec;
+    height: 90vh;
+    color: #768075;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+
+    right: 47%;
+    width: 60px;
+    height: 34px;
+}
+
+.switch_input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "🌙"; /* Lua padrão */
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #020202; /* bolinha preta */
+    color: #fff; /* Icone branco */
+    transition: .4s;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #020202;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+    content: "☀️"; /* Sol */
+    background-color: #ffffff; /* bolinha branca */
+    color: #000; /* Icone preto */
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.verdadeiro { color: green; }
+
+.falso { color: red; }
